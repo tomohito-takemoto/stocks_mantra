@@ -1,0 +1,53 @@
+a.navbar-brand {
+    font-family: "源ノ角ゴシック";
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: "源ノ角ゴシック Normal";
+    background: #f4f2f0;
+}
+
+h1.heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3e3e3e;
+    margin: 1.5rem 0%;
+}
+
+/** トップページのボタン **/
+button.signup_btn {
+    width: 90%;
+    border-radius: 10px;
+    border: solid 1px #4a154b;
+    box-shadow: 0 0 3px grey;
+    background: #e7dde8;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+button.signup_btn:hover {
+    color: #fff;
+    background: #4a154b;
+    border: solid 2px #fff;
+}
+
+button.login_btn {
+    width: 90%;
+    border-radius: 10px;
+    border: solid 1px #4a154b;
+    box-shadow: 0 0 3px grey;
+    background: #fff;
+    padding: 0.5rem;
+}
+
+button.login_btn:hover {
+    color: #fff;
+    background: #4a154b;
+    border: solid 2px #fff;
+}
+
+/** トップページの画像 **/
+img.img-fluid {
+    margin: 2.5rem 0 0 0;
+}
