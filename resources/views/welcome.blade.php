@@ -10,7 +10,8 @@
                 <ul class="top_button list-unstyled">
                     {{-- ユーザ登録ページへのリンク --}}
                     {!! link_to_route('signup.get', 'はじめての方はこちら', [], ['class' => 'signup_btn btn-primary btn-block']) !!}
-                    <li class="login"><button type="button" class="login_btn"><strong>ログインはこちら</strong></button></li>
+                    {{-- ユーザ登録ページへのリンク --}}
+                    {!! link_to_route('login.post', 'ログインはこちら', [], ['class' => 'login_btn btn-primary btn-block']) !!}
                 </ul>
             </div>
             <div class="col-sm-5">

@@ -16,22 +16,6 @@ h1.heading {
 }
 
 /** トップページのボタン **/
-
-button.login_btn {
-    width: 90%;
-    border-radius: 10px;
-    border: solid 1px #4a154b;
-    box-shadow: 0 0 3px grey;
-    background: #fff;
-    padding: 0.5rem;
-}
-
-button.login_btn:hover {
-    color: #fff;
-    background: #4a154b;
-    border: solid 2px #fff;
-}
-
 a.signup_btn.btn-primary.btn-block {
     width: 100%;
     border-radius: 10px;
@@ -51,7 +35,69 @@ a.signup_btn.btn-primary.btn-block:hover {
     border: solid 2px #fff;
 }
 
+a.login_btn.btn-primary.btn-block {
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px #4a154b;
+    box-shadow: 0 0 3px grey;
+    background: #ffffff;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+a.login_btn.btn-primary.btn-block:hover {
+    color: #fff;
+    background: #4a154b;
+    border: solid 2px #fff;
+}
+
 /** トップページの画像 **/
 img.img-fluid {
     margin: 2.5rem 0 0 0;
+}
+
+
+/** サインアップ画面 **/
+input#name, input#email, input#password, input#password_confirmation {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: solid 1px #a27fa3;
+    box-shadow: 0 0 5px grey;
+    background: #ffffff;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+input.btn.btn-primary.btn-block {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: solid 1px #ffffff;
+    box-shadow: 0 0 5px grey;
+    background: #4a154b;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+input.btn.btn-primary.btn-block:hover {
+    color: #4a154b;
+    background: #ffffff;
+    border: solid 2px #a27fa3;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-left: 1.5rem;
+    font-weight: bold;
 }
