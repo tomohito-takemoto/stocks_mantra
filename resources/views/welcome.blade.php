@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mt-4 row">
-        <div class="col-sm-7">
+    <div class="center_jumbotron mt-4 row">
+        <div class="text-center col-sm-7">
             <h1 class="heading">保有銘柄の四半期決算情報を記録しよう！</h1>
             <ul class="top_button list-unstyled">
-                <li class="first"><button type="button" class="signup_btn"><strong>はじめての方はこちら</strong></button></li>
+                {{-- ユーザ登録ページへのリンク --}}
+                {!! link_to_route('signup.get', 'はじめての方はこちら', [], ['class' => 'signup_btn btn-primary btn-block']) !!}
                 <li class="login"><button type="button" class="login_btn"><strong>ログインはこちら</strong></button></li>
             </ul>
         </div>

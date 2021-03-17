@@ -16,21 +16,6 @@ h1.heading {
 }
 
 /** トップページのボタン **/
-button.signup_btn {
-    width: 90%;
-    border-radius: 10px;
-    border: solid 1px #4a154b;
-    box-shadow: 0 0 3px grey;
-    background: #e7dde8;
-    padding: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-button.signup_btn:hover {
-    color: #fff;
-    background: #4a154b;
-    border: solid 2px #fff;
-}
 
 button.login_btn {
     width: 90%;
@@ -42,6 +27,25 @@ button.login_btn {
 }
 
 button.login_btn:hover {
+    color: #fff;
+    background: #4a154b;
+    border: solid 2px #fff;
+}
+
+a.signup_btn.btn-primary.btn-block {
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px #4a154b;
+    box-shadow: 0 0 3px grey;
+    background: #e7dde8;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+a.signup_btn.btn-primary.btn-block:hover {
     color: #fff;
     background: #4a154b;
     border: solid 2px #fff;
