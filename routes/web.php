@@ -11,8 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'StocksController@index');
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'create']]);
+    Route::resource('stocks', 'StocksController', ['only' => ['index', 'store', 'destroy', 'show', 'edit', 'update']]);
+    Route::get('/stocks/edit/{id}', 'StocksController@edit')->name('stocks_edit');
+    Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');
+    Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
+    
 });
 
 // ユーザ登録
