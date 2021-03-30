@@ -116,14 +116,17 @@ class StocksController extends Controller
     public function update(Request $request)
     {
         
-        $stosk = Stocks::find($request->id);
-        $stosk->year = $request->year;
-        $stosk->period = $request->period;
-        $stosk->estimate = $request->estimate;
-        $stosk->reported = $request->reported;
-        $stosk->save();
+        //dd($request);
+        $stock = Stocks::find($request->id);
+        $stock->year = $request->stock_year;
+        $stock->period = $request->stock_period;
+        $stock->estimate = $request->stock_estimate;
+        $stock->reported = $request->stock_reported;
+        //dd($stock);
+        $stock->save();
         
-        return redirect('stocks.show');
+        //dd($stock);
+        return redirect('stocks/' . $stock->id);
     }
     
     public function show_add()
