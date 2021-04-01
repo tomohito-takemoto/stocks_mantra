@@ -1,15 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="create-item">レコードを登録しよう</h2>
+
+    @if($stock->id == $request->id) {
+        <h2 class="create-item">{{ $stock->symbol }}を追加しよう</h2>
+    @else
+        <h2 class="create-item">レコードを登録しよう</h2>
+    @endif
+    
     <div class="newticker mt-4 row">
-            <h3 class="col-sm-6">銘柄を入力</h3>
-            <div class="input-area col-sm-6">
+        <h3 class="col-sm-6">銘柄を入力</h3>
+        <div class="input-area col-sm-6">
             {!! Form::open(['route' => 'stocks.store']) !!}
-            <div class="form-group">
-                {!! Form::text('symbol', old('symbol'), ['class' => 'input-form form-control']) !!}
-            </div>
+        <div class="form-group">
+            {!! Form::text('symbol', old('symbol'), ['class' => 'input-form form-control']) !!}
         </div>
+    </div>
         
         <h3 class="col-sm-6">年度を入力</h3>
         <div class="input-area col-sm-6">

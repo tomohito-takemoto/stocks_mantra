@@ -88,7 +88,7 @@ class StocksController extends Controller
         }
         
         $user = \Auth::user();
-        $stocks = $user->stocks()->where('symbol', $stock->symbol)->orderBy('created_at', 'desc')->paginate(10);
+        $stocks = $user->stocks()->where('symbol', $stock->symbol)->orderBy('year', 'desc')->orderBy('period', 'desc')->paginate(10);
         
         $data = [
             'user' => $user,
@@ -132,5 +132,26 @@ class StocksController extends Controller
     public function show_add()
     {
         return view('stocks.newregister');
+    }
+    
+    
+    public function create(Request $request) {
+        
+        //dd($request);
+        
+        $user = \Auth::user();
+        $stock = Stocks::find($request->id);
+        $stocks = $user->stocks();
+        
+        //dd($stock);
+        
+        if($stock){
+        
+        return view('stocks.newregister', [
+            'stock' => $stock,
+            'stocks' => $stocks
+        ]);
+        
+        }
     }
 }

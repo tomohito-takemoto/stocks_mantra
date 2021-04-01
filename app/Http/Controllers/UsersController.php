@@ -11,9 +11,14 @@ class UsersController extends Controller
 {
     public function create(Request $request) {
         
-        $symbol = $request->input('symbol');
+        $user = \Auth::user();
+        $stock = Stocks::find($request->id);
+        $stocks = $user->stocks();
         
-        return view('stocks.newregister');
+        return view('stocks.newregister',[
+            'stock' => $stock,
+            'stocks' => $stocks
+        ]);
     }
     
 }
