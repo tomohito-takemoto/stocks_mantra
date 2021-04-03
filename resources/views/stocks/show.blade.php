@@ -35,6 +35,6 @@
     </table>
     <div class="row">
         {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-sm-4']) !!}
-        {!! link_to_route('stocks_create', '追加', ['symbol' => 'test'], ['class' => 'btn btn-primary col-sm-4 offset-sm-4']) !!}
+        {!! link_to_route('stocks_create', '追加', [$stock->id], ['class' => 'btn btn-primary col-sm-4 offset-sm-4']) !!}
     </div>
 @endsection

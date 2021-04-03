@@ -29,7 +29,7 @@
                         {!! link_to_route('stocks.show', 'More View', ['stock' => $stock->id], ['class' => 'btn btn-primary']) !!}
                     </li>
                     <li class="moreview col-sm-4">
-                        {!! link_to_route('stocks_create', '追加しよう', ['stock' => $stock->id], ['class' => 'btn btn-success col-sm-4']) !!}
+                        {!! link_to_route('stocks_create', '追加しよう', [$stock->id], ['class' => 'btn btn-success col-sm-4']) !!}
                     </li>
                 </ul>
                 @endforeach

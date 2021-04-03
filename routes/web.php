@@ -15,7 +15,7 @@ Route::get('/', 'StocksController@index');
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::post('/stocks/create/{id}', 'StocksController@create')->name('stocks_create');
+    Route::get('/stocks/create/{id}', 'StocksController@create')->name('stocks_create');
     Route::resource('stocks', 'StocksController', ['only' => ['index', 'store', 'destroy', 'show', 'edit', 'update']]);
     Route::get('/stocks/edit/{id}', 'StocksController@edit')->name('stocks_edit');
     Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');

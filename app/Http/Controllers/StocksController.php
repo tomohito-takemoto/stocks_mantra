@@ -137,21 +137,16 @@ class StocksController extends Controller
     
     public function create(Request $request) {
         
-        //dd($request);
-        
         $user = \Auth::user();
         $stock = Stocks::find($request->id);
         $stocks = $user->stocks();
         
+        //dd($request);
         //dd($stock);
-        
-        if($stock){
         
         return view('stocks.newregister', [
             'stock' => $stock,
             'stocks' => $stocks
         ]);
-        
-        }
     }
 }
