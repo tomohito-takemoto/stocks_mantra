@@ -28,7 +28,7 @@ class StocksController extends Controller
             }
             
         // マイページでそれらを表示
-        return view('users.index', $data);
+        return view('stocks.index', $data);
         
         } else {
             return view('welcome');
@@ -37,33 +37,71 @@ class StocksController extends Controller
     
     public function store(Request $request)
     {
-        // バリデーション
-        $request->validate([
-            'symbol' => 'required|max:4',
-            'year' => 'required|max:4',
-            'period' => 'required|max:1',
-            'estimate' => 'required|max:5',
-            'reported' => 'required|max:5',
-        ]);
+        $stock = Stocks::find($request->id);
 
-        // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->stocks()->create([
-            'symbol' => $request->symbol,
-            'year' => $request->year,
-            'period' => $request->period,
-            'estimate' => $request->estimate,
-            'reported' => $request->reported,
-        ]);
-
-        // 前のURLへリダイレクトさせる
-        return back();
+        // ストックの中身が無い場合
+        if(is_null($stock)) {
+            //dd($request);
+            // バリデーション
+            $request->validate([
+                'symbol' => 'required|max:4',
+                'year' => 'required|max:4',
+                'period' => 'required|max:1',
+                'estimate' => 'required|max:5',
+                'reported' => 'required|max:5',
+            ]);
+            
+            $stock=$request->user()->stocks()->create([
+                'symbol' => $request->symbol,
+                'year' => $request->year,
+                'period' => $request->period,
+                'estimate' => $request->estimate,
+                'reported' => $request->reported,
+            ]);
+            
+            //dd($stock->id);
+            // 前のURLへリダイレクトさせる
+            //return redirect()->route('stocks.store', ['stock' => $stock, 'symbol' => $stock->symbol]);
+            //return redirect()->route('stocks.store');
+            //return redirect()->route('stocks.show', $request->id);
+            //dd($request->id);
+            return redirect()->route('stocks.show', ['stock' => $stock->id]);
+            //return redirect()->action( [StocksController::class, 'show'], ['stock' => $request->id]);
+            //return back();
+        
+        // ストックの中身がある場合   
+        } else {
+            dd($request);
+            
+            // バリデーション
+            $request->validate([
+                //'symbol' => 'required|max:4',
+                'year' => 'required|max:4',
+                'period' => 'required|max:1',
+                'estimate' => 'required|max:5',
+                'reported' => 'required|max:5',
+            ]);
+            
+            $stock=$request->user()->stocks()->create([
+                'year' => $request->year,
+                'period' => $request->period,
+                'estimate' => $request->estimate,
+                'reported' => $request->reported,
+            ]);
+            //dd($request);
+            //return redirect()->route('stocks_addto', [$request->symbol]);
+            return redirect()->route('stocks.show', ['stock' => $stock->id]);
+        }
+        
+        
     }
     
     public function destroy($id)
     {
         //dd($id);
-        // idの値で投稿を検索して取得
+        //idの値で投稿を検索して取得
         $stock = \App\Stocks::findOrFail($id);
+        
         //dd($stock);
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
         if (\Auth::id() === $stock->user_id) {
@@ -75,20 +113,21 @@ class StocksController extends Controller
 
         // 前のURLへリダイレクトさせる
         return redirect('stocks');
+        //return redirect()->route('stocks.show', ['stock' => $stock->id]);
     }
     
     public function show($id)
     {
         // idの値でメッセージを検索して取得
         $stock = Stocks::find($id);
-        //dd($stock->symbol);
+        //dd($stock);
         
         if(!$stock){
             return view('stocks.newregister');
         }
         
         $user = \Auth::user();
-        $stocks = $user->stocks()->where('symbol', $stock->symbol)->orderBy('year', 'desc')->orderBy('period', 'desc')->paginate(10);
+        $stocks = $user->stocks()->where('symbol', $stock->symbol)->orderBy('year', 'desc')->orderBy('period', 'desc')->paginate(5);
         
         $data = [
             'user' => $user,
@@ -110,7 +149,7 @@ class StocksController extends Controller
         $stocks = $user->stocks();
         
         //dd($stock);
-        return view('stocks.edit', ['stock' => $stock, 'stocks' => $stocks]); 
+        return view('stocks.edit', ['stock' => $stock, 'stocks' => $stocks]);
     }
     
     public function update(Request $request)

@@ -22,6 +22,13 @@ h1 {
 }
 
 
+/** ヘッダーロゴ **/
+img.logo {
+    width: 30%;
+    margin-left: 2rem;
+}
+
+
 /** ヘッダードロップダウンメニュー **/
 ul.navbar-nav {
     text-align: right;
@@ -30,6 +37,22 @@ ul.navbar-nav {
 li.nav-item {
     color: #ffffff;
     font-weight: bold;
+}
+
+ul.dropdown-menu.dropdown-menu-right.show {
+    text-align: right;
+    background: transparent;
+}
+
+.dropdown-divider {
+    height: 0;
+    margin: .1rem 0;
+    overflow: hidden;
+    border-top: none;
+}
+
+li.dropdown-item {
+    padding-right: 1.0rem;
 }
 
 
@@ -128,4 +151,36 @@ label {
     margin-bottom: .5rem;
     margin-left: 1.5rem;
     font-weight: bold;
+}
+
+
+/** index.blade.php **/
+.newticker_regist.text-right {
+    padding-right: 15px;
+    margin-top: 30px;
+}
+
+ul.mystocks.list-unstyled.mt-4.row {
+    border-bottom: solid 1px #4a154b;
+    padding-bottom: 10px;
+}
+
+.button-icon.col-6 {
+    padding: 0px;
+    text-align: center;
+}
+
+td.operation.row {
+    border: 0px;
+}
+
+/** newregister.blade.php **/
+.formbutton-area.text-right.row {
+    width: 100%;
+    margin: 1.5rem auto;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
 }

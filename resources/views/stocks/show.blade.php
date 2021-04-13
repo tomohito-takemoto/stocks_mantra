@@ -24,17 +24,28 @@
                 <td>{{ $stock->reported }}</td>
                 <td>前年同期比</td>
                 <td class="operation row">
-                    {!! link_to_route('stocks_edit', '更新', [$stock->id], ['class' => 'btn btn-primary col-sm-4']) !!}
-                    {!! Form::model($stock, ['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
+                    <div class="button-icon col-6">
+                        {!! link_to_route('stocks_edit', '更新', [$stock->id], ['class' => 'btn btn-primary']) !!}
+                    </div>
+                    <div class="button-icon col-6">
+                        {!! Form::model($stock, ['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
+                            {!! Form::button('<i class="far fa-trash-alt fa-lg"></i>', ['class' => 'btn awesome', 'type' => 'submit']) !!}
+                        {!! Form::close() !!}
+                    </div>
                 </td>
             </tr>
         </tbody>
         @endforeach
     </table>
-    <div class="row">
-        {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-sm-4']) !!}
-        {!! link_to_route('stocks_create', '追加', [$stock->id], ['class' => 'btn btn-primary col-sm-4 offset-sm-4']) !!}
+    @if (\Auth::id() === $stock->user_id)
+        <div class="row">
+            {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
+            {!! link_to_route('stocks_create', '追加', [$stock->id], ['class' => 'btn btn-primary offset-4 col-4']) !!}
+        </div>
+    @else
+        <div class="row">
+            {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
+        </div>
+    @endif
     </div>
 @endsection

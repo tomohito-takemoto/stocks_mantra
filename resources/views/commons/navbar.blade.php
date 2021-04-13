@@ -1,7 +1,9 @@
 <header class="mb-4">
      <nav class="navbar navbar-dark mb-2" style="background-color:#4a154b;">
         {{-- トップページへのリンク --}}
-        <a class="navbar-brand" href="/" style="color:#fff;">Stocks Mantra</a>
+        <a class="navbar-brand" href="/" style="color:#fff;">
+            <img class="logo" src='{{ asset('storage/Mantra-logo.png') }}'>
+        </a>
 
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
@@ -11,8 +13,9 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if (Auth::check())
-                    {{-- ユーザ一覧ページへのリンク --}}
-                    <li class="nav-item"><a href="#" class="nav-link">マイページ</a></li>
+                    <li class="nav-item">{!! link_to_route('stocks.index', 'マイページ') !!}</li>
+                    {{-- ログアウトへのリンク --}}
+                    <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
@@ -23,6 +26,9 @@
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
                         </ul>
                     </li>
+                    {{-- ユーザ一覧ページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('users.index', 'Users', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item dropdown">
                 @else
                     {{-- ユーザ登録ページへのリンク --}}
                     <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>

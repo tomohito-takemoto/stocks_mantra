@@ -9,16 +9,51 @@ use App\Stocks; // 追加
 
 class UsersController extends Controller
 {
-    public function create(Request $request) {
-        
-        $user = \Auth::user();
-        $stock = Stocks::find($request->id);
-        $stocks = $user->stocks();
-        
-        return view('stocks.newregister',[
-            'stock' => $stock,
-            'stocks' => $stocks
+    public function index()
+    {
+        // ユーザ一覧をidの降順で取得
+        $users = User::orderBy('id', 'desc')->paginate(10);
+
+        // ユーザ一覧ビューでそれを表示
+        return view('users.index', [
+            'users' => $users,
         ]);
     }
     
+    public function store(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'year' => 'required|max:4',
+            'period' => 'required|max:1',
+            'estimate' => 'required|max:5',
+            'reported' => 'required|max:5',
+        ]);
+
+        // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
+        $request->user()->stocks()->create([
+            'year' => $request->year,
+            'period' => $request->period,
+            'estimate' => $request->estimate,
+            'reported' => $request->reported,
+        ]);
+
+        // 前のURLへリダイレクトさせる
+        return back();
+    }
+    
+    public function show($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+        $stock = Stocks::find($id);
+        $stocks = $user->stocks()->orderBy('created_at', 'desc')->paginate(10);
+        
+        // ユーザ詳細ビューでそれを表示
+        return view('users.users_show', [
+            'user' => $user,
+            'stock' => $stock,
+            'stocks' => $stocks,
+        ]);
+    }
 }

@@ -5,7 +5,7 @@
         <title>Stocks Mantra</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="originalservice.css">
+        <link href="{{asset('/assets/css/originalservice.css')}}" rel="stylesheet">
     </head>
 
     <body>
@@ -16,8 +16,9 @@
         <div class="container">
             {{-- エラーメッセージ --}}
             @include('commons.error_messages')
-
+            
             @yield('content')
+  
         </div>
         
         <div class="footer" style="background:#000">

@@ -14,12 +14,21 @@
 Route::get('/', 'StocksController@index');
 
 Route::group(['middleware' => ['auth']], function () {
-
+    
+    Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('follow', 'UserFollowController@store')->name('user.follow');
+        Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+        Route::get('followings', 'UsersController@followings')->name('users.followings');
+        Route::get('followers', 'UsersController@followers')->name('users.followers');
+    });
+    
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     Route::get('/stocks/create/{id}', 'StocksController@create')->name('stocks_create');
-    Route::resource('stocks', 'StocksController', ['only' => ['index', 'store', 'destroy', 'show', 'edit', 'update']]);
+    Route::resource('stocks', 'StocksController', ['only' => ['index', 'store', 'destroy', 'show', 'edit', 'update', 'create']]);
     Route::get('/stocks/edit/{id}', 'StocksController@edit')->name('stocks_edit');
     Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');
     Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
+    Route::post('/stocks/add/{id}', 'StocksController@store')->name('stocks_addto');
     
 });
 
