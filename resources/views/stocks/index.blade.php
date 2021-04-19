@@ -4,7 +4,7 @@
     @if (Auth::check())
         <h1 class="heading">マイページ（登録銘柄一覧）</h1>
         <div class="row">
-            <aside class="col-4">
+            <aside class="col-3">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">{{ $user->name }}</h3>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </aside>
-            <div class="col-8">
+            <div class="col-9">
             @if (count($stocks) > 0)
             
                 <ul class="nav nav-tabs nav-justified mb-3">
@@ -29,14 +29,14 @@
                     {{-- フォロー一覧タブ --}}
                     <li class="nav-item">
                         <a href="{{ route('users.followings', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followings') ? 'active' : '' }}">
-                            Followings
+                            フォロー
                             <span class="badge badge-secondary">{{ $user->followings_count }}</span>
                         </a>
                     </li>
                     {{-- フォロワー一覧タブ --}}
                     <li class="nav-item">
                         <a href="{{ route('users.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followers') ? 'active' : '' }}">
-                            Followers
+                            フォロワー
                             <span class="badge badge-secondary">{{ $user->followers_count }}</span>
                         </a>
                     </li>

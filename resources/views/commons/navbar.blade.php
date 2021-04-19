@@ -1,5 +1,5 @@
 <header class="header-area">
-<nav class="navbar navbar-expand-sm mb-3" style="background-color:#4a154b;">
+<nav class="navbar navbar-expand-sm mb-3" style="background-color:#845460;">
     <a class="navbar-brand w-25" href="/" style="color:#fff;">
         <img class="logo" src='{{ asset('storage/Mantra-logo.png') }}'>
     </a>

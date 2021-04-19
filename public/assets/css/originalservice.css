@@ -24,7 +24,7 @@ h1 {
 
 /** ヘッダーロゴ **/
 img.logo {
-    width: 90%;
+    width: 60%;
 }
 
 
@@ -90,6 +90,10 @@ a.login_btn.btn-primary.btn-block:hover {
     color: #fff;
     background: #4a154b;
     border: solid 2px #fff;
+}
+
+li.nav-item.active.mr-3 a {
+    color: #ffffff;
 }
 
 /** トップページの画像 **/
