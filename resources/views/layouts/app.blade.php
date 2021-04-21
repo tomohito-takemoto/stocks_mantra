@@ -9,16 +9,19 @@
     </head>
 
     <body>
-
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
-
-        <div class="container">
-            {{-- エラーメッセージ --}}
-            @include('commons.error_messages')
+         
+        <div class="row">
+            <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
+                @include('commons.sidebar')
+            </div>
+            <div class="container col-sm-10" style="height:800px;">
+                {{-- エラーメッセージ --}}
+                @include('commons.error_messages')
             
-            @yield('content')
-  
+                @yield('content')
+            </div>
         </div>
         
         <div class="footer" style="background:#000">

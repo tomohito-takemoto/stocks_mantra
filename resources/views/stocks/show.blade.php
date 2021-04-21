@@ -25,11 +25,13 @@
                 <td>前年同期比</td>
                 <td class="operation row">
                     <div class="button-icon col-6">
-                        {!! link_to_route('stocks_edit', '更新', [$stock->id], ['class' => 'btn btn-primary']) !!}
+                        <a href="{{ route('stocks_edit',  [$stock->id]) }}" class="editbtn">
+                            <i class="fas fa-edit fa-2x"></i>
+                        </a>
                     </div>
                     <div class="button-icon col-6">
                         {!! Form::model($stock, ['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
-                            {!! Form::button('<i class="far fa-trash-alt fa-lg"></i>', ['class' => 'btn awesome', 'type' => 'submit']) !!}
+                            {!! Form::button('<i class="far fa-trash-alt fa-2x"></i>', ['class' => 'btn awesome', 'type' => 'submit']) !!}
                         {!! Form::close() !!}
                     </div>
                 </td>

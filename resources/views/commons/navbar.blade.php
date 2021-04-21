@@ -1,6 +1,6 @@
 <header class="header-area">
-<nav class="navbar navbar-expand-sm mb-3" style="background-color:#845460;">
-    <a class="navbar-brand w-25" href="/" style="color:#fff;">
+<nav class="navbar navbar-expand-sm" style="background-color: #4a154b;">
+    <a class="navbar-brand w-25" href="/">
         <img class="logo" src='{{ asset('storage/Mantra-logo.png') }}'>
     </a>
     
@@ -21,10 +21,10 @@
                 <li class="nav-item active">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</li>
             @endif
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
 </nav>
 </header>

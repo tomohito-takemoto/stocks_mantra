@@ -22,7 +22,7 @@
                 <td>{!! Form::text('stock_period', $stock->period, ['class' => 'form-control', 'id' => 'period']) !!}</td>
                 <td>{!! Form::text('stock_estimate', $stock->estimate, ['class' => 'form-control', 'id' => 'estimate']) !!}</td>
                 <td>{!! Form::text('stock_reported', $stock->reported, ['class' => 'form-control', 'id' => 'reported']) !!}</td>
-                <td>{!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}</td>
+                <td>{!! Form::submit('更新', ['i class' => 'fas fa-edit fa-2x']) !!}</td>
             </tr>
         </tbody>
     </table>

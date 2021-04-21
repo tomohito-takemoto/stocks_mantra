@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="row">
-        <aside class="col-sm-4">
+        <aside class="col-sm-2">
             {{-- ユーザ情報 --}}
             @include('users.card')
         </aside>
-        <div class="col-sm-8">
+        <div class="col-sm-9 offset-1">
             <ul class="nav nav-tabs nav-justified mb-3">
                 {{-- フォロー一覧タブ --}}
                 <li class="nav-item">
