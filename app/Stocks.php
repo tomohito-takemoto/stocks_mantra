@@ -14,4 +14,12 @@ class Stocks extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    /**
+     * ユーザからお気に入りされているstock（Userモデルとの関係を定義）
+     */
+    public function favoriteds()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'stock_id', 'user_id')->withTimestamps();
+    }
 }

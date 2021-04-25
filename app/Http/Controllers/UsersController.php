@@ -13,10 +13,13 @@ class UsersController extends Controller
     {
         // ユーザ一覧をidの降順で取得
         $users = User::orderBy('id', 'desc')->paginate(10);
+        //$id = Auth::user()->id;
+        //$user = User::findOrFail($id);
 
         // ユーザ一覧ビューでそれを表示
         return view('users.index', [
             'users' => $users,
+            'user' => $user,
         ]);
     }
     

@@ -47,7 +47,7 @@ class User extends Authenticatable
      */
     public function loadRelationshipCounts()
     {
-        $this->loadCount(['stocks', 'followings', 'followers']);
+        $this->loadCount(['stocks', 'followings', 'followers', 'favoritings']);
     }
     
     
@@ -124,4 +124,47 @@ class User extends Authenticatable
             return false;
         }
     }
+    
+    /**
+     * このユーザがお気に入り中のstock（Stocksモデルとの関係を定義）
+     */
+    public function favoritings()
+    {
+        return $this->belongsToMany(Stocks::class, 'favorites', 'user_id', 'stock_id')->withTimestamps();
+    }
+    
+    public function favorite($stockId)
+    {
+        $exist = $this->is_favoriting($stockId);
+        $its_me = $this->id == $stockId;
+        
+        if($exist || $its_me) {
+            //お気に入りしていれば何もしない
+            return false;
+        } else {
+            //お気に入りしてなければお気に入りする
+            $this->favoritings()->attach($stockId);
+            return true;
+        }
+    }
+    
+    public function unfavorite($stockId)
+    {
+        $exist = $this->is_favoriting($stockId);
+        $its_me = $this->id == $stockId;
+        
+        if($exist || $its_me) {
+            $this->favoritings()->detach($stockId);
+            return true;
+        } else {
+        return false;
+        }
+    }
+    
+    public function is_favoriting($stockId)
+    {
+        // お気に入り中ストックの中に $userIdのものが存在するか
+        return $this->favoritings()->where('stock_id', $stockId)->exists();
+    }
+    
 }

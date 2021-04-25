@@ -31,6 +31,14 @@
                             <span class="badge badge-secondary">{{ $user->followers_count }}</span>
                         </a>
                     </li>
+                    
+                    {{-- お気に入り一覧 --}}
+                    <li class="nav-item">
+                        <a href="{{ route('stocks.favorites_list', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('stocks.favorites_list') ? 'active' : '' }}">
+                            お気に入り
+                            <span class="badge badge-secondary">{{ $user->favorites_count }}</span>
+                        </a>
+                    </li>
                 </ul>
                 
                 @foreach ($stocks->unique('symbol') as $stock)

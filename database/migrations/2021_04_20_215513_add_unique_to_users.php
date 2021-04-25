@@ -15,8 +15,7 @@ class AddUniqueToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->unique(['email', 'deleted_at'], 'users_email_deleted_at_unique');
-            $table->unique(['name', 'deleted_at'], 'users_name_deleted_at_unique');
+            //$table->unique(['email'], 'users_email_unique');
           });
     }
 
@@ -29,8 +28,7 @@ class AddUniqueToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropUnique('users_email_deleted_at_unique');
-            $table->dropUnique('users_name_deleted_at_unique');
+            //$table->dropUnique('users_email_unique');
           });
     }
 }

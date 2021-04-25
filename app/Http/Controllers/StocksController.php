@@ -126,7 +126,8 @@ class StocksController extends Controller
             return view('stocks.newregister');
         }
         
-        $user = \Auth::user();
+        //$user = \Auth::user();
+        $user = User::findOrFail($stock->user_id);
         $stocks = $user->stocks()->where('symbol', $stock->symbol)->orderBy('year', 'desc')->orderBy('period', 'desc')->paginate(5);
         
         $data = [

@@ -35,19 +35,32 @@
                                 <span class="badge badge-secondary">{{ $user->followers_count }}</span>
                             </a>
                         </li>
+                        
                     </ul>
                 
                     @foreach ($stocks->unique('symbol') as $stock)
                     <ul class="mystocks list-unstyled mt-4 row">
-                        <li class="meigara text-center col-6">
-                            <div>{{ $stock->symbol }}</div>
-                        </li>
-                        <li class="moreview text-right col-3">
-                            {!! link_to_route('stocks.show', 'More View', ['stock' => $stock->id], ['class' => 'btn btn-primary']) !!}
-                        </li>
-                        <li class="moreview text-right col-3">
-                            {!! link_to_route('stocks_create', '追加しよう', [$stock->id], ['class' => 'btn btn-success']) !!}
-                        </li>
+                        @if (Auth::id() == $user->id)
+                            <li class="meigara text-center col-6">
+                                <div>{{ $stock->symbol }}</div>
+                            </li>
+                            <li class="moreview text-right col-3">
+                                {!! link_to_route('stocks.show', 'More View', ['stock' => $stock->id], ['class' => 'btn btn-primary']) !!}
+                            </li>
+                            <li class="moreview text-right col-3">
+                                {!! link_to_route('stocks_create', '追加しよう', [$stock->id], ['class' => 'btn btn-success']) !!}
+                            </li>
+                        @else
+                            <li class="meigara text-center col-6">
+                                <div>{{ $stock->symbol }}</div>
+                            </li>
+                            <li class="moreview text-right col-3">
+                                {!! link_to_route('stocks.show', 'More View', ['stock' => $stock->id], ['class' => 'btn btn-primary']) !!}
+                            </li>
+                            <li class="text-right col-3">
+                                @include('favorite.favorite_button')
+                            </li>
+                        @endif
                     </ul>
                     @endforeach
                 
