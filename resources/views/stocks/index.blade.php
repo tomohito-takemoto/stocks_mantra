@@ -2,19 +2,8 @@
 
 @section('content')
     @if (Auth::check())
-        <div class="row">
-            <aside class="col-sm-2">
-                <div class="card">
-                    <div class="card-body">
-                        {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-                        <img class="rounded-circle img-fluid" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
-                    </div>
-                    <div class="card-footer">{{ $user->name }}</div>
-                </div>
-            </aside>
-            <div class="col-sm-9 offset-1">
+        <div class="stock_table">
             @if (count($stocks) > 0)
-            
                 <ul class="nav nav-tabs nav-justified mb-3">
                     {{-- フォロー一覧タブ --}}
                     <li class="nav-item">

@@ -5,13 +5,13 @@
         @include('stocks.index');
     @else
         <div class="row">
-            <aside class="col-sm-2">
+            <aside class="col-sm-2 p-0">
                 <div class="card">
                     <div class="card-body">
                         {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
                         <img class="rounded-circle img-fluid" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
                     </div>
-                    <div class="card-footer">{{ $user->name }}</div>
+                    <div class="card-footer p-0 pb-3 pt-1">{{ $user->name }}</div>
                 </div>
                 
                 {{-- フォロー／アンフォローボタン --}}

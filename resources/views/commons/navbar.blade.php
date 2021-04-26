@@ -11,9 +11,14 @@
     <div class="collapse navbar-collapse" id="globalmenu">
         <ul class="navbar-nav ml-auto" id="globalmenu">
             @if (Auth::check())
-                <li class="nav-item active mr-3">{!! link_to_route('stocks.index', 'マイページ') !!}</li>
-                <li class="nav-item active mr-3">{!! link_to_route('users.index', 'Users') !!}</li>
-                <li class="nav-item active mr-3">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                <li class="nav-item active mr-3 text-left">{!! link_to_route('stocks.index', 'マイページ') !!}</li>
+                <li class="nav-item active mr-3 mt-1 text-left">{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
+                <li class="nav-item active mr-3 mt-1 text-left">
+                    <a href="{{ route('stocks.favorites_list', ['id' => $user->id]) }}" class="nav-text {{ Request::routeIs('stocks.favorites_list') ? 'active' : '' }}">
+                        お気に入り
+                    </a>
+                </li>
+                <li class="nav-item active mr-3 mt-1 text-left">{!! link_to_route('logout.get', 'Logout') !!}</li>
             @else
                 {{-- ユーザ登録ページへのリンク --}}
                 <li class="nav-item active">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
