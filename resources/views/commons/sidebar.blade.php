@@ -10,10 +10,10 @@
                     </div>
                     <div class="card-footer text-center text-light">{{ \Auth::user()->name }}</div>
                 </li>
-                <li class="nav-item active mr-3 mt-3">{!! link_to_route('stocks.index', 'マイページ', ['mypage']) !!}</li>
-                <li class="nav-item active mr-3 mt-3">{!! link_to_route('users.index', 'ユーザー一覧', ['users_list']) !!}</li>
+                <li class="nav-item active mr-3 mt-3">{!! link_to_route('stocks.index', 'マイページ') !!}</li>
+                <li class="nav-item active mr-3 mt-3">{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
                 <li class="nav-item active mr-3 mt-3">
-                    <a href="{{ route('stocks.favorites_list', ['id' => $user->id]) }}" class="nav-text {{ Request::routeIs('stocks.favorites_list') ? 'active' : '' }}">
+                    <a href="{{ route('stocks.favorites_list', ['id' => Auth::user()->id]) }}" class="nav-text {{ Request::routeIs('stocks.favorites_list') ? 'active' : '' }}">
                         お気に入り
                     </a>
                 </li>

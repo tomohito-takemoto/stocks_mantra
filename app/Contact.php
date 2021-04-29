@@ -13,4 +13,6 @@ class Contact extends Model
     static $genders = [
         '男', '女'
     ];
+    
+    protected $table = 'contactform';
 } 

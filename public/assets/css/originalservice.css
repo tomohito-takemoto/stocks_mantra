@@ -234,3 +234,8 @@ td.operation.row {
     margin-right: 0px;
     margin-left: 0px;
 }
+
+/** お問い合わせ **/
+h1.card-header.mt-0.pl-4.border-bottom {
+    color: #fff;
+}

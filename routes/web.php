@@ -34,6 +34,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
     Route::post('/stocks/add/{id}', 'StocksController@store')->name('stocks_addto');
     
+    // お問い合わせ
+    Route::get('/contact', 'ContactsController@index')->name('contact');
+    Route::post('/contact/confirm', 'ContactsController@confirm')->name('confirm');
+    Route::post('/contact/process', 'ContactsController@process')->name('process');
+    Route::get('/contact/complete', 'ContactsController@complete')->name('complete');
+
 });
 
 // ユーザ登録
@@ -45,7 +51,3 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-// お問い合わせ
-Route::get('contact', 'ContactsController@index')->name('contact');;
-Route::post('contact/confirm', 'ContactsController@confirm');
-Route::post('contact/complete', 'ContactsController@complete');
