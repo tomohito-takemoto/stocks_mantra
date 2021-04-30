@@ -1,29 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-center">
-        <h1>Log in</h1>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-6 offset-sm-3">
+    <div class="center_jumbotron" style="margin-top: 15rem;>
+        {!! Form::open(['route' => 'login.post']) !!}
+        <ul class="loginform list-unstyled row mt-6">
+            <li class="form-group col-sm-6">
+                {!! Form::label('email', 'Email') !!}
+                {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+            </li>
 
-            {!! Form::open(['route' => 'login.post']) !!}
-                <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
-                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
-                </div>
+            <li class="form-group col-sm-6">
+                {!! Form::label('password', 'Password') !!}
+                {!! Form::password('password', ['class' => 'form-control']) !!}
+            </li>
+        </ul>
 
-                <div class="form-group">
-                    {!! Form::label('password', 'Password') !!}
-                    {!! Form::password('password', ['class' => 'form-control']) !!}
-                </div>
+        {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block w-50']) !!}
+        {!! Form::close() !!}
 
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
-            {!! Form::close() !!}
-
-            {{-- ユーザ登録ページへのリンク --}}
-            <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
-        </div>
+        {{-- ユーザ登録ページへのリンク --}}
+        <p class="Tosignup mt-2 text-center text-white">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
     </div>
 @endsection

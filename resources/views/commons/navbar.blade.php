@@ -1,6 +1,6 @@
 <header class="header-area">
 <nav class="navbar navbar-expand-sm" style="background-color: #4a154b;">
-    <a class="navbar-brand w-25" href="/">
+    <a class="navbar-brand w-25" href="/mypage">
         <img class="logo" src='{{ asset('storage/Mantra-logo.png') }}'>
     </a>
     
@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="globalmenu">
         <ul class="navbar-nav ml-auto" id="globalmenu">
             @if (Auth::check())
-                <li class="nav-item active mr-3 text-left">{!! link_to_route('stocks.index', 'マイページ') !!}</li>
+                <li class="nav-item active mr-3 text-left">{!! link_to_route('mypage', 'マイページ') !!}</li>
                 <li class="nav-item active mr-3 mt-1 text-left">{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
                 <li class="nav-item active mr-3 mt-1 text-left">
                     <a href="{{ route('stocks.favorites_list', ['id' => Auth::user()->id]) }}" class="nav-text {{ Request::routeIs('stocks.favorites_list') ? 'active' : '' }}">

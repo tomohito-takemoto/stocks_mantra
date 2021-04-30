@@ -1,4 +1,3 @@
-<!-- サイドバー -->
 <aside class="main-sidebar" style="background-color:#1264a3;" media="screen and (min-width:575px)">
     <section class="sidebar_conten">
         <ul class="p-3 pt-4 list-unstyled" id="sidemenu">
@@ -27,4 +26,4 @@
             @endif
         </ul>
     </section>
-</aside><!-- end sidebar -->
+</aside>

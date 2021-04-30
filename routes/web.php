@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');
     Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
     Route::post('/stocks/add/{id}', 'StocksController@store')->name('stocks_addto');
+    Route::get('mypage', 'StocksController@index')->name('mypage');
     
     // お問い合わせ
     Route::get('/contact', 'ContactsController@index')->name('contact');
