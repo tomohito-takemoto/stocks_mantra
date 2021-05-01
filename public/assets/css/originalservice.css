@@ -22,6 +22,21 @@ h1 {
     color: #4e4e4e;
 }
 
+/** トップ画像 **/
+@media (min-width: 1200px){
+.container {
+    max-width: 3000px;
+    height: 2000px;
+}
+}
+
+/** サインアップ画面 **/
+label.text-white {
+    text-shadow: 2px 2px 3px #4a154b;
+    font-size: 1.75rem;
+}
+
+
 
 /** ヘッダーロゴ **/
 img.logo {
@@ -118,17 +133,16 @@ a.editbtn {
 
 
 /** トップページのボタン **/
-a.signup_btn.btn-primary.btn-block {
-    width: 100%;
+input.btn.btn-primary.btn-block {
+    margin: 0 auto;
     border-radius: 10px;
-    border: solid 1px #4a154b;
-    box-shadow: 0 0 3px grey;
-    background: #e7dde8;
-    padding: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: #4e4e4e;
+    border: solid 2px #ffffff;
+    box-shadow: 0 0 5px grey;
+    background: #4a154b;
+    padding: 0.7rem !important;
+    color: #ffffff;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem !important;
 }
 
 a.signup_btn.btn-primary.btn-block:hover {

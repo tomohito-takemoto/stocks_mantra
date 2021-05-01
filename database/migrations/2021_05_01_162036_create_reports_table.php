@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportedLogTable extends Migration
+class CreateReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateReportedLogTable extends Migration
      */
     public function up()
     {
-        Schema::create('reported_log', function (Blueprint $table) {
-            $table->bigIncrements('stock_id');
-            $table->string('symbol');
+        Schema::create('reports', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('stock_id');
             $table->string('year');
             $table->string('period');
             $table->string('estimate');
@@ -31,6 +31,6 @@ class CreateReportedLogTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reported_log');
+        Schema::dropIfExists('reports');
     }
 }

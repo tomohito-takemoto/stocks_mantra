@@ -18,10 +18,10 @@
         <tbody>
             <tr>
                 <th>{{ $stock->symbol }}</th>
-                <td>{{ $stock->year }}</td>
-                <td>{{ $stock->period }}</td>
-                <td>{{ $stock->estimate }}</td>
-                <td>{{ $stock->reported }}</td>
+                <td>{{ $report->year }}</td>
+                <td>{{ $report->period }}</td>
+                <td>{{ $report->estimate }}</td>
+                <td>{{ $report->reported }}</td>
                 <td>前年同期比</td>
                 <td class="operation row">
                     <div class="button-icon col-6">

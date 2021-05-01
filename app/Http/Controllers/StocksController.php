@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User; // 追加
 use App\Stocks; // 追加
+use App\Report;
 
 class StocksController extends Controller
 {
@@ -39,61 +40,19 @@ class StocksController extends Controller
     {
         $stock = Stocks::find($request->id);
 
-        // ストックの中身が無い場合
-        if(is_null($stock)) {
-            //dd($request);
-            // バリデーション
-            $request->validate([
-                'symbol' => 'required|max:4',
-                'year' => 'required|max:4',
-                'period' => 'required|max:1',
-                'estimate' => 'required|max:5',
-                'reported' => 'required|max:5',
-            ]);
+        $request->validate([
+            'symbol' => 'required|max:4',
+        ]);
             
-            $stock=$request->user()->stocks()->create([
-                'symbol' => $request->symbol,
-                'year' => $request->year,
-                'period' => $request->period,
-                'estimate' => $request->estimate,
-                'reported' => $request->reported,
-            ]);
+        $stock = $request->user()->stocks()->create([
+            'symbol' => $request->symbol,
+        ]);
             
-            //dd($stock->id);
-            // 前のURLへリダイレクトさせる
-            //return redirect()->route('stocks.store', ['stock' => $stock, 'symbol' => $stock->symbol]);
-            //return redirect()->route('stocks.store');
-            //return redirect()->route('stocks.show', $request->id);
-            //dd($request->id);
-            return redirect()->route('stocks.show', ['stock' => $stock->id]);
-            //return redirect()->action( [StocksController::class, 'show'], ['stock' => $request->id]);
-            //return back();
-        
-        // ストックの中身がある場合   
-        } else {
-            dd($request);
-            
-            // バリデーション
-            $request->validate([
-                //'symbol' => 'required|max:4',
-                'year' => 'required|max:4',
-                'period' => 'required|max:1',
-                'estimate' => 'required|max:5',
-                'reported' => 'required|max:5',
+        //return redirect()->route('report', ['stock' => $stock->id]);
+        //dd($stock);
+        return view('reports.report', [
+            'stock' => $stock
             ]);
-            
-            $stock=$request->user()->stocks()->create([
-                'year' => $request->year,
-                'period' => $request->period,
-                'estimate' => $request->estimate,
-                'reported' => $request->reported,
-            ]);
-            //dd($request);
-            //return redirect()->route('stocks_addto', [$request->symbol]);
-            return redirect()->route('stocks.show', ['stock' => $stock->id]);
-        }
-        
-        
     }
     
     public function destroy($id)
@@ -120,6 +79,7 @@ class StocksController extends Controller
     {
         // idの値でメッセージを検索して取得
         $stock = Stocks::find($id);
+        
         //dd($stock);
         
         if(!$stock){

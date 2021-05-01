@@ -9,26 +9,26 @@
     </head>
 
     <body>
-        {{-- ナビゲーションバー --}}
-        @include('commons.navbar')
-        
-        <div @if(Request::is('/', 'login', 'signup')) class="background row" style="background: url(storage/original-service2.png) no-repeat; background-size: contain;" @else class="background-else row" @endif>
-        
-            @if (Auth::check())
-            <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
-                @include('commons.sidebar')
-            </div>
-            @endif
-            <div class="container col-sm-10" style="height:800px;">
-                {{-- エラーメッセージ --}}
-                @include('commons.error_messages')
+        <div class="container p-0">
+            {{-- ナビゲーションバー --}}
+            @include('commons.navbar')
+            <div @if(Request::is('/', 'login', 'signup')) class="jumbotron row mb-0 pb-0" style="background: url(storage/original-service.png) no-repeat; background-size: cover;" @else class="background-else row" @endif>
+                @if (Auth::check())
+                    <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
+                        @include('commons.sidebar')
+                    </div>
+                @endif
             
-                @yield('content')
+                <div class="container col-sm-10">
+                    {{-- エラーメッセージ --}}
+                    @include('commons.error_messages')
+                    @yield('content')
+                </div>
             </div>
-        </div>
-        
-        <div class="footer" style="background:#000">
-            @include('commons.footer')
+            
+            <div class="footer" style="background:#000">
+                @include('commons.footer')
+            </div>
         </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -17,10 +17,6 @@ class CreateStocksTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('symbol');
-            $table->string('year');
-            $table->string('period');
-            $table->string('estimate');
-            $table->string('reported');
             $table->timestamps();
             
             // 外部キー制約

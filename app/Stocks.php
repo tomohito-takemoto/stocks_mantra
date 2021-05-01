@@ -15,6 +15,11 @@ class Stocks extends Model
         return $this->belongsTo(User::class);
     }
     
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
+    
     /**
      * ユーザからお気に入りされているstock（Userモデルとの関係を定義）
      */
