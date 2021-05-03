@@ -17,7 +17,6 @@ class ReportsController extends Controller
         
         //$stock = \App\Stock::findOrFail($id);
         $stock = Stock::find($request->id);
-        //dd($stock);
         
         $request->validate([
             'year' => 'required|max:4',
@@ -36,10 +35,9 @@ class ReportsController extends Controller
         
         //dd($report);
         //dd($stock);
-        
-        //return redirect()->route('reports.show', ['id' => $report->stock_id]);
+
         //return view('stocks.show', [], ['stock' => $stock, 'report' => $report, 'reports' => $reports]);
-        return redirect()->route('reports.show',[$report->stock_id]);
+        return redirect()->route('reports.show', [ $report->stock_id ]);
     }
     
     public function show($id)
@@ -60,9 +58,23 @@ class ReportsController extends Controller
         //dd($stock);
         //dd($reports);
         
-        return view('stocks.show', [
+        return view('reports.report_show', [
             'stock' => $stock,
             'reports' => $reports
             ]);
+    }
+    
+    public function create(Request $request) {
+        
+        $user = \Auth::user();
+        $stock = Stock::find($id);
+        $stocks = $user->stocks();
+        
+        //dd($request);
+        //dd($stock);
+        
+        return view('reports.report', [
+            'stock' => $stock,
+        ]);
     }
 }

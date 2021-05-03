@@ -35,17 +35,17 @@ class StocksController extends Controller
     
     public function store(Request $request)
     {
-        $stock = New Stock();
 
+        $stock = New Stock();
+        
         $request->validate([
             'symbol' => 'required|max:4',
         ]);
-            
+        
         $stock = $request->user()->stocks()->create([
             'symbol' => $request->symbol,
         ]);
-            
-        //return redirect()->route('report', ['stock' => $stock->id]);
+        
         //dd($stock);
         return view('reports.report', ['stock' => $stock, 'id' => $stock->id]);
     }

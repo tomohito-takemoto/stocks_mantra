@@ -36,13 +36,13 @@
                         <div>{{ $stock->symbol }}</div>
                     </li>
                     <li class="moreview text-right col-2">
-                        <a href="{{ route('stocks.index',  ['stock' => $stock->id]) }}" class="editbtn">
-                            <i class="fas fa-edit fa-2x"></i>
+                        <a href="{{ route('reports.show',  ['stock' => $stock, $stock->id]) }}" class="editbtn">
+                            <i class="fas fa-eye fa-2x"></i>
                         </a>
                     </li>
                     <li class="moreview text-right col-2">
-                        <a href="{{ route('report', [$stock->id]) }}" class="editbtn">
-                            <i class="fas fa-folder-plus fa-2x"></i>
+                        <a href="{{ route('stocks.store') }}" class="editbtn">
+                            <i class="fas fa-eye fa-2x"></i>
                         </a>
                     </li>
                 </ul>

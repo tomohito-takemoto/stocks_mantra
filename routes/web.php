@@ -37,8 +37,6 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::post('report/{id}', 'ReportsController@store')->name('report');
     Route::resource('reports', 'ReportsController', ['show']);
-    //Route::resource('reports', 'ReportsController@show')->name('reports.show');
-    //Route::resource('reports', 'ReportsController@show')->names(['report_show' => 'reports']);
     
     // お問い合わせ
     Route::get('/contact', 'ContactsController@index')->name('contact');
