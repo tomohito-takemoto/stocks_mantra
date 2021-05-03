@@ -34,7 +34,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
     Route::post('/stocks/add/{id}', 'StocksController@store')->name('stocks_addto');
     Route::get('mypage', 'StocksController@index')->name('mypage');
-    Route::post('report', 'ReportsController@store')->name('report');
+    
+    Route::post('report/{id}', 'ReportsController@store')->name('report');
+    Route::resource('reports', 'ReportsController', ['show']);
+    //Route::resource('reports', 'ReportsController@show')->name('reports.show');
+    //Route::resource('reports', 'ReportsController@show')->names(['report_show' => 'reports']);
     
     // お問い合わせ
     Route::get('/contact', 'ContactsController@index')->name('contact');

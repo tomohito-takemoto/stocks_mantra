@@ -21,6 +21,9 @@ class CreateReportsTable extends Migration
             $table->string('estimate');
             $table->string('reported');
             $table->timestamps();
+            
+            // 外部キー制約
+            $table->foreign('stock_id')->references('id')->on('stocks');
         });
     }
 

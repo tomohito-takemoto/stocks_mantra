@@ -39,7 +39,7 @@ class User extends Authenticatable
     
     public function stocks()
     {
-        return $this->hasMany(Stocks::class);
+        return $this->hasMany(Stock::class);
     }
     
     /**

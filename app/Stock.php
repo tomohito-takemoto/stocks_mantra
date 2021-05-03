@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Stocks extends Model
+class Stock extends Model
 {
     protected $fillable = [
         'symbol', 'year', 'period', 'estimate', 'reported'

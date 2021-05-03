@@ -12,6 +12,6 @@ class Report extends Model
         
     public function stock()
     {
-        return $this->belongsTo(Stocks::class);
+        return $this->belongsTo(Stock::class);
     }
 }

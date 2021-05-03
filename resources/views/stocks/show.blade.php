@@ -5,19 +5,16 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">symbol</th>
                 <th scope="col">year</th>
                 <th scope="col">period</th>
                 <th scope="col">estimate</th>
                 <th scope="col">reported</th>
                 <th scope="col">前年同期比</th>
-                <th scope="col"></th>
             </tr>
         </thead>
-        @foreach ($stocks as $stock)
+        @foreach ($reports as $report)
         <tbody>
             <tr>
-                <th>{{ $stock->symbol }}</th>
                 <td>{{ $report->year }}</td>
                 <td>{{ $report->period }}</td>
                 <td>{{ $report->estimate }}</td>

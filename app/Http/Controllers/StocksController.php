@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User; // 追加
-use App\Stocks; // 追加
+use App\Stock; // 追加
 use App\Report;
 
 class StocksController extends Controller
@@ -13,8 +13,7 @@ class StocksController extends Controller
     public function index()
     {
         $data = [];
-        if (\Auth::check()) { // 認証済みの場合
-            // 認証済みユーザを取得
+        if (\Auth::check()) {
             $user = \Auth::user();
             $stocks = $user->stocks()->orderBy('created_at', 'desc')->paginate(10);
             //dd($user->stocks()->first());
@@ -24,12 +23,10 @@ class StocksController extends Controller
             ];
         
             if( !$user->stocks()->first() ){
-                //dd('111');
                 return redirect()->route('stock_add');
             }
             
-        // マイページでそれらを表示
-        return view('stocks.index', $data);
+            return view('stocks.index', $data);
         
         } else {
             return view('welcome');
@@ -38,7 +35,7 @@ class StocksController extends Controller
     
     public function store(Request $request)
     {
-        $stock = Stocks::find($request->id);
+        $stock = New Stock();
 
         $request->validate([
             'symbol' => 'required|max:4',
@@ -50,16 +47,14 @@ class StocksController extends Controller
             
         //return redirect()->route('report', ['stock' => $stock->id]);
         //dd($stock);
-        return view('reports.report', [
-            'stock' => $stock
-            ]);
+        return view('reports.report', ['stock' => $stock, 'id' => $stock->id]);
     }
     
     public function destroy($id)
     {
         //dd($id);
         //idの値で投稿を検索して取得
-        $stock = \App\Stocks::findOrFail($id);
+        $stock = \App\Stock::findOrFail($id);
         
         //dd($stock);
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
@@ -78,7 +73,7 @@ class StocksController extends Controller
     public function show($id)
     {
         // idの値でメッセージを検索して取得
-        $stock = Stocks::find($id);
+        $stock = Stock::find($id);
         
         //dd($stock);
         
@@ -106,7 +101,7 @@ class StocksController extends Controller
     {
         //dd($request);
         $user = \Auth::user();
-        $stock = Stocks::find($request->id);
+        $stock = Stock::find($request->id);
         $stocks = $user->stocks();
         
         //dd($stock);
@@ -117,7 +112,7 @@ class StocksController extends Controller
     {
         
         //dd($request);
-        $stock = Stocks::find($request->id);
+        $stock = Stock::find($request->id);
         $stock->year = $request->stock_year;
         $stock->period = $request->stock_period;
         $stock->estimate = $request->stock_estimate;
@@ -138,7 +133,7 @@ class StocksController extends Controller
     public function create(Request $request) {
         
         $user = \Auth::user();
-        $stock = Stocks::find($request->id);
+        $stock = Stock::find($request->id);
         $stocks = $user->stocks();
         
         //dd($request);
