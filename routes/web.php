@@ -29,14 +29,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     Route::get('/stocks/create/{id}', 'StocksController@create')->name('stocks_create');
     Route::resource('stocks', 'StocksController', ['only' => ['index', 'store', 'destroy', 'show', 'edit', 'update', 'create']]);
-    Route::get('/stocks/edit/{id}', 'StocksController@edit')->name('stocks_edit');
-    Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');
+    //Route::get('/stocks/edit/{id}', 'StocksController@edit')->name('stocks_edit');
+    //Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');
     Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
     Route::post('/stocks/add/{id}', 'StocksController@store')->name('stocks_addto');
     Route::get('mypage', 'StocksController@index')->name('mypage');
     
+    
+    Route::get('stock/create/{id}', 'ReportsController@create');
+    Route::post('stock/create/{id}', 'ReportsController@create')->name('report_create');
+    Route::get('report/edit/{id}', 'ReportsController@edit');
+    Route::post('report/edit/{id}', 'ReportsController@edit')->name('report_edit');
+    Route::put('reports/{id}', 'ReportsController@update')->name('report_update');
     Route::post('report/{id}', 'ReportsController@store')->name('report');
-    Route::resource('reports', 'ReportsController', ['show']);
+    Route::resource('reports', 'ReportsController', ['only' => ['show', 'destroy']]);
     
     // お問い合わせ
     Route::get('/contact', 'ContactsController@index')->name('contact');

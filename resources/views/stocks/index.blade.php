@@ -36,14 +36,12 @@
                         <div>{{ $stock->symbol }}</div>
                     </li>
                     <li class="moreview text-right col-2">
-                        <a href="{{ route('reports.show',  ['stock' => $stock, $stock->id]) }}" class="editbtn">
+                        <a href="{{ route('reports.show',  [$stock->id]) }}" class="editbtn">
                             <i class="fas fa-eye fa-2x"></i>
                         </a>
                     </li>
                     <li class="moreview text-right col-2">
-                        <a href="{{ route('stocks.store') }}" class="editbtn">
-                            <i class="fas fa-eye fa-2x"></i>
-                        </a>
+                        {!! link_to_route('report_create', '追加', ['stock' => $stock, 'id' => $stock->id], ['class' => 'btn btn-success']) !!}
                     </li>
                 </ul>
                 @endforeach

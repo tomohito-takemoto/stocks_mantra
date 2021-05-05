@@ -113,11 +113,11 @@ class StocksController extends Controller
         
         //dd($request);
         $stock = Stock::find($request->id);
-        $stock->year = $request->stock_year;
-        $stock->period = $request->stock_period;
-        $stock->estimate = $request->stock_estimate;
-        $stock->reported = $request->stock_reported;
-        //dd($stock);
+        $report->year = $request->stock_year;
+        $report->period = $request->stock_period;
+        $report->estimate = $request->stock_estimate;
+        $report->reported = $request->stock_reported;
+        //dd($report);
         $stock->save();
         
         //dd($stock);

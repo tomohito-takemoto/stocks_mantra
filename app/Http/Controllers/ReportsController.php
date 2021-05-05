@@ -15,7 +15,6 @@ class ReportsController extends Controller
     {
         $report = New Report();
         
-        //$stock = \App\Stock::findOrFail($id);
         $stock = Stock::find($request->id);
         
         $request->validate([
@@ -24,6 +23,8 @@ class ReportsController extends Controller
             'estimate' => 'required|max:5',
             'reported' => 'required|max:5',
         ]);
+        
+        //dd($stock);
         
         $report->stock_id = $stock->id;
         $report->year = $request->year;
@@ -43,9 +44,7 @@ class ReportsController extends Controller
     public function show($id)
     {
         $user = \Auth::user();
-        //$user = User::findOrFail($stock->user_id);
         $stock = Stock::find($id);
-        //$report = Report::find($stock->id);
         
         if(!$stock){
             return redirect('stocks.newregister');
@@ -57,6 +56,7 @@ class ReportsController extends Controller
         
         //dd($stock);
         //dd($reports);
+        //dd($stock->id);
         
         return view('reports.report_show', [
             'stock' => $stock,
@@ -64,8 +64,8 @@ class ReportsController extends Controller
             ]);
     }
     
-    public function create(Request $request) {
-        
+    public function create($id)
+    {
         $user = \Auth::user();
         $stock = Stock::find($id);
         $stocks = $user->stocks();
@@ -76,5 +76,52 @@ class ReportsController extends Controller
         return view('reports.report', [
             'stock' => $stock,
         ]);
+    }
+    
+    public function edit($id)
+    {
+        $user = \Auth::user();
+        $report = Report::find($id);
+        //$stock = $report->stock()->first();
+        
+        //dd($stock);
+        //dd($report->id);
+        return view('reports.edit', ['report' => $report]);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $report = Report::find($id);
+        $stock = $report->stock()->first();
+        
+        $request->validate([
+            'year' => 'required|max:4',
+            'period' => 'required|max:1',
+            'estimate' => 'required|max:5',
+            'reported' => 'required|max:5',
+        ]);
+        
+        $report->year = $request->year;
+        $report->period = $request->period;
+        $report->estimate = $request->estimate;
+        $report->reported = $request->reported;
+        
+        $report->save();
+        
+        return redirect('reports/' . $stock->id);
+        //return redirect()->action('ReportsController@show', ['id' => $stock->id]);
+        //return view('reports.report_show', ['stock' => $stock,'report' => $report]);
+    }
+    
+    public function destroy($id)
+    {
+        $report = Report::find($id);
+        $stock = $report->stock()->first();
+        
+        $report->delete();
+
+        // 前のURLへリダイレクトさせる
+        return redirect('reports/' . $stock->id);
+        //return redirect()->route('stocks.show', ['stock' => $stock->id]);
     }
 }

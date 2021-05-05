@@ -22,7 +22,7 @@
                 <td>前年同期比</td>
                 <td class="operation row">
                     <div class="button-icon col-6">
-                        <a href="{{ route('stocks_edit',  [$stock->id]) }}" class="editbtn">
+                        <a href="{{ route('report_edit',  [$stock->id]) }}" class="editbtn">
                             <i class="fas fa-edit fa-2x"></i>
                         </a>
                     </div>

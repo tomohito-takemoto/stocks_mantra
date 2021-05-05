@@ -22,12 +22,13 @@
                 <td>前年同期比</td>
                 <td class="operation row">
                     <div class="button-icon col-6">
-                        <a href="{{ route('stocks_edit',  [$stock->id]) }}" class="editbtn">
+                        {{--<a href="{{ route('report_edit', ['stock' => $stock]) }}" class="editbtn">
                             <i class="fas fa-edit fa-2x"></i>
-                        </a>
+                        </a>--}}
+                        {!! link_to_route('report_edit', '更新', [$report->id], ['class' => 'btn btn-primary offset-4 col-4']) !!}
                     </div>
                     <div class="button-icon col-6">
-                        {!! Form::model($stock, ['route' => ['stocks.destroy', $stock->id], 'method' => 'delete']) !!}
+                        {!! Form::model($report, ['route' => ['reports.destroy', $report->id], 'method' => 'delete']) !!}
                             {!! Form::button('<i class="far fa-trash-alt fa-2x"></i>', ['class' => 'btn awesome', 'type' => 'submit']) !!}
                         {!! Form::close() !!}
                     </div>
@@ -39,7 +40,7 @@
     @if (\Auth::id() === $stock->user_id)
         <div class="row">
             {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
-            {!! link_to_route('stocks_create', '追加', [$stock->id], ['class' => 'btn btn-primary offset-4 col-4']) !!}
+            {!! link_to_route('report_create', '追加', ['stock' => $stock, 'id' => $stock->id], ['class' => 'btn btn-success']) !!}
         </div>
     @else
         <div class="row">
