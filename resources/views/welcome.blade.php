@@ -39,29 +39,13 @@
             </div>
         </section>
         
-        <section class="page-section bg-primary pt-8 pb-8" id="about">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="text-center">
-                        <h2 class="text-white mb-5">投資効率を大幅UP！<br>四半期決算を管理しよう！</h2>
-                        <ul class="top_button list-unstyled row">
-                            {{-- ユーザ登録ページへのリンク --}}
-                            {!! link_to_route('signup.get', 'はじめての方はこちら', [], ['class' => 'btn btn-light btn-xl js-scroll-trigger col-sm-5']) !!}
-                            {{-- ユーザ登録ページへのリンク --}}
-                            {!! link_to_route('login.post', '登録済みの方はこちら', [], ['class' => 'btn btn-light btn-xl js-scroll-trigger col-sm-5 offset-2']) !!}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="page-section2 pt-8 pb-8" id="contact">
+        <section class="page-section bg-light pt-8 pb-8" id="second_about">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="mt-0">Let's Get In Touch!</h2>
+                        <h2 class="mt-0">ご連絡はこちら</h2>
                         <hr class="divider my-4" />
-                        <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                        <p class="text-muted mb-5">決算プロジェクトを始める準備はできましたか？ 電話またはメールでご連絡いただければ、できるだけ早くご連絡いたします。</p>
                     </div>
                 </div>
                 <div class="row">
@@ -75,6 +59,7 @@
                         <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
         

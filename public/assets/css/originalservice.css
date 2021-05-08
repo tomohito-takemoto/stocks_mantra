@@ -75,6 +75,10 @@ section#about {
     padding: 8rem 0;
 }
 
+section#second_about {
+    padding: 8rem 0;
+}
+
 .bg-primary {
     background-color: #f4623a!important;
 }
