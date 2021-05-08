@@ -1,3 +1,18 @@
+@charset "UTF-8";
+/*!
+* Start Bootstrap - Creative v6.0.5 (https://startbootstrap.com/theme/creative)
+* Copyright 2013-2021 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
+*/
+/*!
+ * Bootstrap v4.6.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+ 
+ 
+
 a.navbar-brand {
     font-family: "源ノ角ゴシック";
     font-size: 1.5rem;
@@ -22,47 +37,120 @@ h1 {
     color: #4e4e4e;
 }
 
-/** トップ画像 **/
-@media (min-width: 1200px){
-.container {
-    max-width: 3000px;
-    height: 2000px;
-}
+/** welcom.blade.php **/
+
+header.masthead {
+    padding-top: 13rem;
+    padding-bottom: 13rem;
+    background: linear-gradient(to top, rgba(0, 0, 25, 0.1) 0%, rgba(74, 21, 75, 0.7) 100%), url(/storage/original-service.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
 }
 
+.btn-xl {
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #f4623a;
+    border-color: #f4623a;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #f4623a;
+    border-color: #f4623a;
+    box-shadow: 0 0 3px white;
+}
+
+section#about {
+    padding: 8rem 0;
+}
+
+.bg-primary {
+    background-color: #f4623a!important;
+}
+
+.row.justify-content-center {
+    margin: 0 auto;
+}
+
+
 /** サインアップ画面 **/
+
 label.text-white {
     text-shadow: 2px 2px 3px #4a154b;
     font-size: 1.75rem;
 }
 
-
-
-/** ヘッダーロゴ **/
-img.logo {
-    width: 60%;
+.btn-primary:hover {
+    color: #fff;
+    background-color: #4a154b;
+    border-color: #4a154b;
 }
 
 
-/** ヘッダードロップダウンメニュー **/
-ul.navbar-nav {
-    text-align: right;
+/** ヘッダーエリア **/
+
+#mainNav .navbar-brand {
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
 }
 
-li.nav-item {
-    color: #ffffff;
-    font-weight: bold;
+#mainNav .navbar-nav .nav-item .nav-link {
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 0;
 }
+
+@media (min-width: 992px){
+#mainNav {
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    color: white;
+}
+}
+
+
+@media (max-width: 991px){
+#mainNav {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    color: #4a154b;
+}
+
+.navbar-light .navbar-brand {
+    color: #4a154b;
+}
+}
+
+
+
 
 span.navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-@media(min-width:576px){
-ul#globalmenu {
-    display: none;
-}
-}
 
 
 /** サイドバー **/
@@ -84,22 +172,6 @@ a.nav-link.mt-3 {
     color: #fff;
 }
 
-/** メインエリア **/
-.container.col-sm-10 {
-    padding: 2rem 3rem;
-}
-
-
-/** トップページ **/
-.container {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.container.col-sm-10 {
-    padding: 4rem 3rem;
-}
 
 /** アバター **/
 img.img-fluid {
@@ -126,7 +198,7 @@ img.img-fluid {
 }
 
 
-/** 更新・追加ボタンのfontawesome化 **/
+/** 更新・追加ボタンのfontawesome **/
 a.editbtn {
     color: #4a154b;
 }
@@ -145,11 +217,6 @@ input.btn.btn-primary.btn-block {
     font-size: 1.2rem !important;
 }
 
-a.signup_btn.btn-primary.btn-block:hover {
-    color: #fff;
-    background: #4a154b;
-    border: solid 2px #fff;
-}
 
 a.login_btn.btn-primary.btn-block,a.signup_btn.btn-primary.btn-block {
     width: 100%;

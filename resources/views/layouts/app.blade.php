@@ -6,30 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link href="{{asset('/assets/css/originalservice.css')}}" rel="stylesheet">
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
     </head>
 
     <body>
-        <div class="container p-0">
-            {{-- ナビゲーションバー --}}
-            @include('commons.navbar')
-            {{--<div @if(Request::is('/', 'login', 'signup')) class="jumbotron row mb-0 pb-0" style="background: url(storage/original-service.png) no-repeat; background-size: contain;" @else class="background-else row" @endif>--}}
-                @if (Auth::check())
-                    <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
-                        @include('commons.sidebar')
-                    </div>
-                @endif
-            
-                <div class="container col-sm-10">
-                    {{-- エラーメッセージ --}}
-                    @include('commons.error_messages')
-                    @yield('content')
-                </div>
+        @include('commons.navbar')
+        {{--<div @if(Request::is('/', 'login', 'signup')) class="jumbotron row mb-0 pb-0" style="background: url(storage/original-service.png) no-repeat; background-size: contain;" @else class="background-else row" @endif>--}}
+        @if (Auth::check())
+            <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
+                @include('commons.sidebar')
             </div>
-            
-            <div class="footer" style="background:#000">
-                @include('commons.footer')
-            </div>
-        </div>
+        @endif
+        
+        {{-- エラーメッセージ --}}
+        @include('commons.error_messages')
+        @yield('content')
+        
+        {{--@include('commons.footer')--}}
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
