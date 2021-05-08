@@ -1,6 +1,7 @@
+    {{--<div @if(Request::is('/', 'login', 'signup')) class="jumbotron row mb-0 pb-0" style="background: url(storage/original-service.png) no-repeat; background-size: contain;" @else class="background-else row" @endif>--}}
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="/mypage">STOCKS MANTRA</a>
+            <a class="navbar-brand js-scroll-trigger" href="/">STOCKS MANTRA</a>
         
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#globalmenu" aria-controls="globalmenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

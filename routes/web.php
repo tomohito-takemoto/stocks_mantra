@@ -42,12 +42,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('report/{id}', 'ReportsController@store')->name('report');
     Route::resource('reports', 'ReportsController', ['only' => ['show', 'destroy']]);
     
-    // お問い合わせ
-    Route::get('/contact', 'ContactsController@index')->name('contact');
-    Route::post('/contact/confirm', 'ContactsController@confirm')->name('confirm');
-    Route::post('/contact/process', 'ContactsController@process')->name('process');
-    Route::get('/contact/complete', 'ContactsController@complete')->name('complete');
-    
     // チャート
     Route::get('/chart', 'ChartController@index');
     Route::get('/chart', 'ChartController@chart');
@@ -62,4 +56,10 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+// お問い合わせ
+Route::get('/contact', 'ContactsController@index')->name('contact');
+Route::post('/contact/confirm', 'ContactsController@confirm')->name('confirm');
+Route::post('/contact/process', 'ContactsController@process')->name('process');
+Route::get('/contact/complete', 'ContactsController@complete')->name('complete');
 

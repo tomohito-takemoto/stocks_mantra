@@ -13,10 +13,8 @@
  
  
 
-a.navbar-brand {
+h1,h2,h3,p {
     font-family: "源ノ角ゴシック";
-    font-size: 1.5rem;
-    margin-right: 0rem;
 }
 
 body {
@@ -88,17 +86,88 @@ section#second_about {
 }
 
 
+/** ログイン画面 **/
+section#login_about {
+    padding: 8rem 0;
+}
+
+section#login_about {
+    background-image: url(/storage/login.png);
+    background-size: cover;
+}
+
+a.login_btn.btn-primary.btn-block,a.signup_btn.btn-primary.btn-block {
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px #4a154b;
+    box-shadow: 0 0 3px grey;
+    background: #ffffff;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+a.login_btn.btn-primary.btn-block:hover {
+    color: #fff;
+    background: #4a154b;
+    border: solid 2px #fff;
+}
+
+
 /** サインアップ画面 **/
 
-label.text-white {
+label.text-white,h1.signup.text-center.mt-4,h1.signup.text-center.m-4 {
     text-shadow: 2px 2px 3px #4a154b;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 .btn-primary:hover {
     color: #fff;
     background-color: #4a154b;
     border-color: #4a154b;
+}
+
+input#name, input#email, input#password, input#password_confirmation {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: solid 1px #a27fa3;
+    box-shadow: 0 0 5px white;
+    background: #ffffff;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+input.btn.btn-primary.btn-block {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: solid 1px #ffffff;
+    box-shadow: 0 0 5px white;
+    background: #4a154b;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+input.btn.btn-primary.btn-block:hover {
+    color: #4a154b;
+    background: #ffffff;
+    border: solid 2px #a27fa3;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-left: 1.5rem;
+    font-weight: bold;
 }
 
 
@@ -208,39 +277,6 @@ a.editbtn {
 }
 
 
-/** トップページのボタン **/
-input.btn.btn-primary.btn-block {
-    margin: 0 auto;
-    border-radius: 10px;
-    border: solid 2px #ffffff;
-    box-shadow: 0 0 5px grey;
-    background: #4a154b;
-    padding: 0.7rem !important;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.2rem !important;
-}
-
-
-a.login_btn.btn-primary.btn-block,a.signup_btn.btn-primary.btn-block {
-    width: 100%;
-    border-radius: 10px;
-    border: solid 1px #4a154b;
-    box-shadow: 0 0 3px grey;
-    background: #ffffff;
-    padding: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: #4e4e4e;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-a.login_btn.btn-primary.btn-block:hover {
-    color: #fff;
-    background: #4a154b;
-    border: solid 2px #fff;
-}
-
 li.nav-item.active.mr-3 a {
     color: #ffffff;
 }
@@ -248,49 +284,6 @@ li.nav-item.active.mr-3 a {
 /** トップページの画像 **/
 img.img-fluid {
     margin: 2.5rem 0 0 0;
-}
-
-
-/** サインアップ画面 **/
-input#name, input#email, input#password, input#password_confirmation {
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: solid 1px #a27fa3;
-    box-shadow: 0 0 5px grey;
-    background: #ffffff;
-    padding: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: #4e4e4e;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-input.btn.btn-primary.btn-block {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: solid 1px #ffffff;
-    box-shadow: 0 0 5px grey;
-    background: #4a154b;
-    padding: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-input.btn.btn-primary.btn-block:hover {
-    color: #4a154b;
-    background: #ffffff;
-    border: solid 2px #a27fa3;
-}
-
-label {
-    display: inline-block;
-    margin-bottom: .5rem;
-    margin-left: 1.5rem;
-    font-weight: bold;
 }
 
 
@@ -323,4 +316,8 @@ td.operation.row {
 /** お問い合わせ **/
 h1.card-header.mt-0.pl-4.border-bottom {
     color: #fff;
+}
+
+section#contact_about {
+    margin-top: 7rem;
 }

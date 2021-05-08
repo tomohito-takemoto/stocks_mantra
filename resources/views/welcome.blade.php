@@ -27,7 +27,8 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="text-center">
-                        <h2 class="text-white mb-5">投資効率を大幅UP！<br>四半期決算を管理しよう！</h2>
+                        <h2 class="text-white">投資効率を大幅UP！<br>四半期決算を管理しよう！</h2>
+                        <hr class="divider my-4" />
                         <ul class="top_button list-unstyled row">
                             {{-- ユーザ登録ページへのリンク --}}
                             {!! link_to_route('signup.get', 'はじめての方はこちら', [], ['class' => 'btn btn-light btn-xl js-scroll-trigger col-sm-5']) !!}
@@ -45,7 +46,7 @@
                     <div class="col-lg-8 text-center">
                         <h2 class="mt-0">ご連絡はこちら</h2>
                         <hr class="divider my-4" />
-                        <p class="text-muted mb-5">決算プロジェクトを始める準備はできましたか？ 電話またはメールでご連絡いただければ、できるだけ早くご連絡いたします。</p>
+                        <p class="text-muted mb-5">決算プロジェクトを始める準備はできましたか？<br>電話またはメールでご連絡いただければ、できるだけ早くご連絡いたします。</p>
                     </div>
                 </div>
                 <div class="row">
@@ -54,9 +55,11 @@
                         <div>+1 (555) 123-4567</div>
                     </div>
                     <div class="col-lg-4 mr-auto text-center">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+                        <a href="{{ route('contact') }}">
+                            <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                        </a>
+                        {{--<i class="fas fa-envelope fa-3x mb-3 text-muted">{!! link_to_route('contact', 'Contact') !!}</i>--}}
+                        {{--<i class="fas fa-envelope fa-3x mb-3 text-muted"></i>--}}
                     </div>
                 </div>
             </div>
