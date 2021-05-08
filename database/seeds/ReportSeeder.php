@@ -12,6 +12,6 @@ class ReportSeeder extends Seeder
      */
     public function run()
     {
-        $start = strtotime("XX XXXX");
+        $start = strtotime("-8 time");
     }
 }

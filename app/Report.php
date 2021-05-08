@@ -14,4 +14,6 @@ class Report extends Model
     {
         return $this->belongsTo(Stock::class);
     }
+    
+    protected $table = "reports";
 }

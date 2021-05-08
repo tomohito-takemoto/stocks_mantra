@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User; // 追加
-use App\Stocks; // 追加
+use App\User;
+use App\Stock;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        // ユーザ一覧をidの降順で取得
         $users = User::orderBy('id', 'desc')->paginate(10);
         $user = \Auth::user();
         //$id = Auth::user()->id;
         //$user = User::findOrFail($id);
 
-        // ユーザ一覧ビューでそれを表示
+        
         return view('users.index', [
             'users' => $users,
             'user' => $user,
@@ -26,7 +25,6 @@ class UsersController extends Controller
     
     public function store(Request $request)
     {
-        // バリデーション
         $request->validate([
             'year' => 'required|max:4',
             'period' => 'required|max:1',
@@ -48,12 +46,10 @@ class UsersController extends Controller
     
     public function show($id)
     {
-        // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
-        $stock = Stocks::find($id);
+        $stock = Stock::find($id);
         $stocks = $user->stocks()->orderBy('created_at', 'desc')->paginate(10);
         
-        // ユーザ詳細ビューでそれを表示
         return view('users.users_show', [
             'user' => $user,
             'stock' => $stock,

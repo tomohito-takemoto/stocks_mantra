@@ -12,7 +12,7 @@
         <div class="container p-0">
             {{-- ナビゲーションバー --}}
             @include('commons.navbar')
-            <div @if(Request::is('/', 'login', 'signup')) class="jumbotron row mb-0 pb-0" style="background: url(storage/original-service.png) no-repeat; background-size: contain;" @else class="background-else row" @endif>
+            {{--<div @if(Request::is('/', 'login', 'signup')) class="jumbotron row mb-0 pb-0" style="background: url(storage/original-service.png) no-repeat; background-size: contain;" @else class="background-else row" @endif>--}}
                 @if (Auth::check())
                     <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
                         @include('commons.sidebar')

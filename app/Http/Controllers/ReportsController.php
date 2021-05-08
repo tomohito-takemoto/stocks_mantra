@@ -43,24 +43,27 @@ class ReportsController extends Controller
     
     public function show($id)
     {
-        $user = \Auth::user();
+        //$user = \Auth::user();
         $stock = Stock::find($id);
+        $user = $stock->user()->first();
+        $report = Report::find($id);
         
         if(!$stock){
             return redirect('stocks.newregister');
         }
         
         //$reports = $user->stocks()->reports()->where('stock_id', $report->stock_id)->orderBy('year', 'desc')->orderBy('period', 'desc')->paginate(5);
-        //$reports = $user->stocks()->reports()->where('stock_id', $stock->symbol);
-        $reports = $stock->reports()->get();
+        $reports = $stock->reports()->orderBy('year', 'desc')->orderBy('period', 'desc')->get();
         
         //dd($stock);
         //dd($reports);
         //dd($stock->id);
+        //dd($user);
         
         return view('reports.report_show', [
             'stock' => $stock,
-            'reports' => $reports
+            'reports' => $reports,
+            'user' => $user
             ]);
     }
     

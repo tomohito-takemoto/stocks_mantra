@@ -18,7 +18,7 @@
                     </div>
                     <div>
                         {{-- お気に入りのstock名 --}}
-                        {!! link_to_route('stocks.show', ( $stock->symbol ), ['stock' => $stock->id], ['class' => 'text_link']) !!}
+                        {!! link_to_route('reports.show', ( $stock->symbol ), [$stock->id], ['class' => 'text_link']) !!}
                     </div>
                     <div>
                         @include('favorite.button_for_list')

@@ -5,7 +5,7 @@
         @include('stocks.index');
     @else
         <div class="row">
-            <aside class="col-sm-2 p-0">
+            <aside class="col-sm-2 p-01">
                 <div class="card">
                     <div class="card-body">
                         {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
@@ -17,6 +17,7 @@
                 {{-- フォロー／アンフォローボタン --}}
                 @include('user_follow.follow_button')
             </aside>
+            
             <div class="col-sm-9 offset-1">
                 @if (count($stocks) > 0)
                     <ul class="nav nav-tabs nav-justified mb-3">
@@ -35,7 +36,6 @@
                                 <span class="badge badge-secondary">{{ $user->followers_count }}</span>
                             </a>
                         </li>
-                        
                     </ul>
                 
                     @foreach ($stocks->unique('symbol') as $stock)
@@ -55,7 +55,7 @@
                                 <div>{{ $stock->symbol }}</div>
                             </li>
                             <li class="moreview text-right col-3">
-                                {!! link_to_route('stocks.show', 'More View', ['stock' => $stock->id], ['class' => 'btn btn-primary']) !!}
+                                {!! link_to_route('reports.show', 'More View', [$stock->id], ['class' => 'btn btn-primary']) !!}
                             </li>
                             <li class="text-right col-3">
                                 @include('favorite.favorite_button')

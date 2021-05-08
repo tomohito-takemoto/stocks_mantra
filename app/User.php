@@ -54,7 +54,7 @@ class User extends Authenticatable
     public function index()
     {
         // ユーザ一覧をidの降順で取得
-        $stocks = Stocks::orderBy('id', 'desc')->paginate(10);
+        $stocks = Stock::orderBy('id', 'desc')->paginate(10);
 
         // ユーザ一覧ビューでそれを表示
         return view('users.index', [
@@ -126,11 +126,11 @@ class User extends Authenticatable
     }
     
     /**
-     * このユーザがお気に入り中のstock（Stocksモデルとの関係を定義）
+     * このユーザがお気に入り中のstock（Stockモデルとの関係を定義）
      */
     public function favoritings()
     {
-        return $this->belongsToMany(Stocks::class, 'favorites', 'user_id', 'stock_id')->withTimestamps();
+        return $this->belongsToMany(Stock::class, 'favorites', 'user_id', 'stock_id')->withTimestamps();
     }
     
     public function favorite($stockId)

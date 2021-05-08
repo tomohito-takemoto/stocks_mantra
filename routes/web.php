@@ -29,8 +29,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     Route::get('/stocks/create/{id}', 'StocksController@create')->name('stocks_create');
     Route::resource('stocks', 'StocksController', ['only' => ['index', 'store', 'destroy', 'show', 'edit', 'update', 'create']]);
-    //Route::get('/stocks/edit/{id}', 'StocksController@edit')->name('stocks_edit');
-    //Route::post('/stocks/update/{id}', 'StocksController@update')->name('stocks_update');
     Route::get('/stocks/add', 'StocksController@show_add')->name('stock_add');
     Route::post('/stocks/add/{id}', 'StocksController@store')->name('stocks_addto');
     Route::get('mypage', 'StocksController@index')->name('mypage');
@@ -49,6 +47,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/contact/confirm', 'ContactsController@confirm')->name('confirm');
     Route::post('/contact/process', 'ContactsController@process')->name('process');
     Route::get('/contact/complete', 'ContactsController@complete')->name('complete');
+    
+    // チャート
+    Route::get('/chart', 'ChartController@index');
+    Route::get('/chart', 'ChartController@chart');
 
 });
 
