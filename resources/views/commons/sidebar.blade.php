@@ -1,5 +1,5 @@
-<aside class="main-sidebar" style="background-color:#1264a3;" media="screen and (min-width:575px)">
-    <section class="sidebar_conten">
+<aside class="sidebar col-md-2" style="background-color:#1264a3;">
+    <section class="side_area">
         <ul class="p-3 pt-4 list-unstyled" id="sidemenu">
             @if (Auth::check())
                 <li class="card">

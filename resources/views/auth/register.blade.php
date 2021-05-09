@@ -32,7 +32,7 @@
                                 {!! Form::label('password_confirmation', 'Confirm', ['class' => 'text-white font-weight-bold m-0']) !!}
                                 {!! Form::password('password_confirmation', ['class' => 'form-control form-control-lg']) !!}
                             </div>
-                            {!! Form::submit('Sign up！', ['class' => 'btn btn-primary btn-block mt-4']) !!}
+                            {!! Form::submit('Sign up！', ['class' => 'btn btn-primary btn-block m-4']) !!}
                         </div>
                     </form>
                     {!! Form::close() !!}

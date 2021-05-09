@@ -15,15 +15,16 @@
 
     <body>
         @include('commons.navbar')
-        @if (Auth::check())
-            <div class="col-sm-2 sidebar-area style="background-color:#2b4f60;"">
-                @include('commons.sidebar')
-            </div>
-        @endif
         
-        {{-- エラーメッセージ --}}
-        @include('commons.error_messages')
-        @yield('content')
+        <div class="row" id="origin">
+            @if (Auth::check())
+                @include('commons.sidebar')
+            @endif
+        
+            {{-- エラーメッセージ --}}
+            @include('commons.error_messages')
+            @yield('content')
+        </div>
         
         {{--@include('commons.footer')--}}
         

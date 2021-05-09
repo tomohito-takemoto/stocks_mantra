@@ -115,6 +115,10 @@ a.login_btn.btn-primary.btn-block:hover {
     border: solid 2px #fff;
 }
 
+img.img-fluid.picture.pl-4 {
+    filter: drop-shadow(2px 2px 5px #faebd7);
+}
+
 
 /** サインアップ画面 **/
 
@@ -145,12 +149,11 @@ input#name, input#email, input#password, input#password_confirmation {
 
 input.btn.btn-primary.btn-block {
     width: 90%;
-    margin: 0 auto;
     border-radius: 10px;
     border: solid 1px #ffffff;
     box-shadow: 0 0 5px white;
     background: #4a154b;
-    padding: 0.5rem;
+    padding: 0.7rem;
     margin-bottom: 1.5rem;
     color: #ffffff;
     font-weight: bold;
@@ -171,12 +174,19 @@ label {
 }
 
 
-/** ヘッダーエリア **/
+/** ヘッダー **/
+
+a.navbar-brand.js-scroll-trigger {
+    font-size: 1.5rem;
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+}
 
 #mainNav .navbar-brand {
     font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
 }
+
 
 #mainNav .navbar-nav .nav-item .nav-link {
     font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -201,25 +211,6 @@ label {
 }
 
 
-@media (max-width: 991px){
-#mainNav {
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    background-color: #fff;
-    transition: background-color 0.2s ease;
-}
-
-#mainNav .navbar-nav .nav-item .nav-link {
-    color: #4a154b;
-}
-
-.navbar-light .navbar-brand {
-    color: #4a154b;
-}
-}
-
-
-
-
 span.navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
@@ -227,22 +218,24 @@ span.navbar-toggler-icon {
 
 
 /** サイドバー **/
-.col-sm-2.sidebar-area {
-    padding: 0px;
+aside.sidebar.col-md-2 {
+    margin-top: 3rem;
 }
 
-aside.main-sidebar {
-    height: 100%;
+ul#sidemenu {
+    margin-top: 3rem;
 }
 
-@media(max-width:575px){
-aside.main-sidebar {
+@media(max-width:767px){
+aside.sidebar.col-md-2 {
     display: none;
 }
 }
 
-a.nav-link.mt-3 {
-    color: #fff;
+
+/** メインエリア **/
+.main-area.col-md-10 {
+    margin-top: 8rem;
 }
 
 
@@ -279,11 +272,6 @@ a.editbtn {
 
 li.nav-item.active.mr-3 a {
     color: #ffffff;
-}
-
-/** トップページの画像 **/
-img.img-fluid {
-    margin: 2.5rem 0 0 0;
 }
 
 

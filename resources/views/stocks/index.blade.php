@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
     @if (Auth::check())
         <div class="stock_table">
             @if (count($stocks) > 0)
@@ -62,4 +63,5 @@
             @endif
         </div>
     @endif
+</div>
 @endsection
