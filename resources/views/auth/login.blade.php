@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
-@section('content')
+@section('content2')
     
     <section class="page-section bg-light pt-8 pb-8" id="login_about">
         <div class="container">

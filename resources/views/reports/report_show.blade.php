@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
     <h2 class="create-item">{{ $stock->symbol }}の四半期決算</h2>
     @if (Auth::user()->id != $user->id)
         <div class="row mt-4">
@@ -83,4 +84,5 @@
             </div>
         </div>    
     @endif
+</div>
 @endsection

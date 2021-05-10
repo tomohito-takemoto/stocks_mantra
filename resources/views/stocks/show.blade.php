@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="create-item">{{ $stock->symbol }}の四半期決算</h2>
+<div class="main-area col-md-10">
+    {<h2 class="create-item">{{ $stock->symbol }}の四半期決算</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -36,15 +37,16 @@
         </tbody>
         @endforeach
     </table>
-    @if (\Auth::id() === $stock->user_id)
-        <div class="row">
-            {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
-            {!! link_to_route('stocks_create', '追加', [$stock->id], ['class' => 'btn btn-primary offset-4 col-4']) !!}
-        </div>
-    @else
-        <div class="row">
-            {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
-        </div>
-    @endif
-    </div>
+    
+        @if (\Auth::id() === $stock->user_id)
+            <div class="row">
+                {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
+                {!! link_to_route('stocks_create', '追加', [$stock->id], ['class' => 'btn btn-primary offset-4 col-4']) !!}
+            </div>
+        @else
+            <div class="row">
+                {!! link_to_route('stocks.index', '一覧ページへ戻る', [], ['class' => 'btn btn-primary col-4']) !!}
+            </div>
+        @endif
+</div>
 @endsection

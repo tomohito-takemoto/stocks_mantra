@@ -1,3 +1,4 @@
+<div class="main-area col-md-10">
 @if (count($users) > 0)
     <ul class="list-unstyled">
         @foreach ($users as $user)
@@ -19,3 +20,4 @@
     {{-- ページネーションのリンク --}}
     {{ $users->links() }}
 @endif
+</div>

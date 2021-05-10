@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
     {!! Form::open(['route' => ['report', $stock->id]]) !!}
     <h2 class="create-item">{{ $stock->symbol }}の決算を追加しよう</h2>
     <div class="newregist mt-4 row">
@@ -48,4 +49,5 @@
         </div>
     </div>
     {!! Form::close() !!}
+</div>
 @endsection

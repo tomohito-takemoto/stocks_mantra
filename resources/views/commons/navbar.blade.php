@@ -46,12 +46,12 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger pl-3 text-white" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger pl-3 text-white" href="#services">Services</a></li>
                     @if (Auth::check())
-                        <li class="nav-item js-scroll-trigger pl-3">{!! link_to_route('mypage', 'マイページ', [], ['class' => 'text-white']) !!}</li>
-                        <li class="nav-item js-scroll-trigger pl-3">{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
-                        <li class="nav-item js-scroll-trigger pl-3">
+                        <li class="nav-link jrs-scoll-trigger pl-3">{!! link_to_route('mypage', 'マイページ') !!}</li>
+                        <li class="nav-link js-scroll-trigger pl-3">{!! link_to_route('users.index', 'ユーザー一覧') !!}</li>
+                        <li class="nav-link js-scroll-trigger pl-3">
                             <a href="{{ route('stocks.favorites_list', ['id' => Auth::user()->id]) }}" class="nav-text {{ Request::routeIs('stocks.favorites_list') ? 'active' : '' }}">お気に入り</a>
                         </li>
-                        <li class="nav-item active mr-3 mt-1 text-left">{!! link_to_route('logout.get', 'Logout', [], ['class' => 'nav-link text-white']) !!}</li>
+                        <li class="nav-item active pl-3 text-left">{!! link_to_route('logout.get', 'Logout', [], ['class' => 'nav-link text-white']) !!}</li>
                     @else
                         {{-- ユーザ登録ページへのリンク --}}
                         <li class="nav-item js-scroll-trigger pl-3">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link text-white']) !!}</li>

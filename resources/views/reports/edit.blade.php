@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
     <h2 class="create-item">{{ $report->stock->symbol }}の更新</h2>
     {!! Form::model($report, ['route' => ['report_update', $report->id], 'method' => 'put']) !!}
     <table class="table table-bordered">
@@ -34,4 +35,5 @@
         {!! Form::close() !!}--}}
         {!! link_to_route('reports.show', '一覧ページへ戻る', [''], ['class' => 'btn btn-primary']) !!}
     </div>
+</div>
 @endsection

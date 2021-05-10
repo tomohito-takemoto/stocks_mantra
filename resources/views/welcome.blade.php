@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
-@section('content')
+@section('content2')
     @if (Auth::check())
         {{ Auth::user()->name }}
     @else
+    
         <header class="masthead">
             <div class="container h-auto">
                 <div class="container h-100">

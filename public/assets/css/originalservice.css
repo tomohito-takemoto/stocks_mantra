@@ -19,7 +19,7 @@ h1,h2,h3,p {
 
 body {
     font-family: "源ノ角ゴシック Normal";
-    background: #f4f2f0;
+    background: #fff;
 }
 
 h1.heading {
@@ -54,12 +54,6 @@ header.masthead {
     text-transform: uppercase;
     border: none;
     border-radius: 10rem;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #f4623a;
-    border-color: #f4623a;
 }
 
 .btn-primary {
@@ -113,6 +107,23 @@ a.login_btn.btn-primary.btn-block:hover {
     color: #fff;
     background: #4a154b;
     border: solid 2px #fff;
+}
+
+input.btn.btn-primary.new.col-6 {
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px #fff;
+    box-shadow: 0 0 3px grey;
+    background: #a27fa3;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.form-control {
+    height: calc(2.50rem + 2px);
 }
 
 img.img-fluid.picture.pl-4 {
@@ -187,6 +198,11 @@ a.navbar-brand.js-scroll-trigger {
     font-weight: 700;
 }
 
+#mainNavi .navbar-brand {
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+}
+
 
 #mainNav .navbar-nav .nav-item .nav-link {
     font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -194,6 +210,14 @@ a.navbar-brand.js-scroll-trigger {
     font-size: 0.9rem;
     padding: 0.75rem 0;
 }
+
+#mainNavi .navbar-nav .nav-item .nav-link {
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 0;
+}
+
 
 @media (min-width: 992px){
 #mainNav {
@@ -208,7 +232,32 @@ a.navbar-brand.js-scroll-trigger {
 #mainNav .navbar-nav .nav-item .nav-link {
     color: white;
 }
+
+#mainNavi {
+    box-shadow: none;
+    background-color: transparent;
 }
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+#mainNavi .navbar-nav .nav-item .nav-link {
+    color: white;
+}
+}
+
+#mainNavi a {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 0;
+}
+
+
 
 
 span.navbar-toggler-icon {
@@ -235,7 +284,8 @@ aside.sidebar.col-md-2 {
 
 /** メインエリア **/
 .main-area.col-md-10 {
-    margin-top: 8rem;
+    margin-top: 4rem;
+    padding: 6rem !important;
 }
 
 
@@ -300,6 +350,13 @@ td.operation.row {
     margin-right: 0px;
     margin-left: 0px;
 }
+
+
+/** 新規登録画面 **/
+.card.bg-light.p-5.col-sm-6 {
+    filter: drop-shadow(2px 2px 5px #a27fa3);
+}
+
 
 /** お問い合わせ **/
 h1.card-header.mt-0.pl-4.border-bottom {
