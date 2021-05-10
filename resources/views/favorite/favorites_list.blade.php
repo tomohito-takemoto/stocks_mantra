@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
 <h2 class="favorite_title">
     <p>お気に入り一覧</p>
 </h2>
@@ -33,4 +34,5 @@
         {!! link_to_route('stocks.index', 'マイページ', [], ['class' => 'btn btn-primary col-4']) !!}
     </div>
 @endif
+</div>
 @endsection

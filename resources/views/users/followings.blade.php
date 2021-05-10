@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
     <div class="row">
         <aside class="col-sm-2">
             {{-- ユーザ情報 --}}
@@ -24,7 +25,8 @@
                 </li>
             </ul>
             {{-- ユーザ一覧 --}}
-            @include('users.users')
+            @include('users.users2')
         </div>
     </div>
+</div>
 @endsection

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-area col-md-10">
     @if (Auth::id() == $user->id)
         @include('stocks.index');
     @else
@@ -9,7 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-                        <img class="rounded-circle img-fluid" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
+                        <img class="rounded-circle img-fluid p-3" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
                     </div>
                     <div class="card-footer p-0 pb-3 pt-1">{{ $user->name }}</div>
                 </div>
@@ -75,4 +76,5 @@
             </div>
         </div>
     @endif
+</div>
 @endsection

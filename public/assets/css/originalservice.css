@@ -35,6 +35,10 @@ h1 {
     color: #4e4e4e;
 }
 
+ul.alert.alert-danger {
+    display: none;
+}
+
 /** welcom.blade.php **/
 
 header.masthead {
