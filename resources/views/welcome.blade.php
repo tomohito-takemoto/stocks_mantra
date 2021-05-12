@@ -18,7 +18,6 @@
                         <div class="col-lg-8 align-self-baseline mt-4">
                             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">サービス内容はこちら</a>
                         </div>
-                        
                     </div>
                 </div>
             </div>
